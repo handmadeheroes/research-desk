@@ -1,0 +1,20 @@
+{
+  "name": "research-desk-ui",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild web/app.js --bundle --minify --outdir=research_desk/static --entry-names=app",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "dompurify": "3.4.17",
+    "gridstack": "14.0.0",
+    "lucide": "1.58.0",
+    "marked": "18.1.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "esbuild": "0.28.2"
+  }
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#175d58">
+  <title>Research Desk</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/app.css">
+  <script type="module" src="/static/app.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#overview"><i data-lucide="book-open"></i><strong>Research Desk</strong></a>
+    <nav aria-label="Main navigation">
+      <a href="#overview" data-nav="overview"><i data-lucide="house"></i>Overview</a>
+      <a href="#library" data-nav="library"><i data-lucide="files"></i>Source Library</a>
+      <a href="#digests" data-nav="digests"><i data-lucide="newspaper"></i>Daily Digest</a>
+      <a href="#portfolio" data-nav="portfolio"><i data-lucide="chart-no-axes-combined"></i>Portfolio</a>
+      <a href="#calendar" data-nav="calendar"><i data-lucide="calendar-days"></i>Calendar &amp; Tasks</a>
+      <a href="#uploads" data-nav="uploads"><i data-lucide="cloud-upload"></i>Uploads &amp; Imports</a>
+      <a href="#activity" data-nav="activity"><i data-lucide="history"></i>Activity Log</a>
+      <a href="#connections" data-nav="connections"><i data-lucide="link"></i>Connections</a>
+      <a href="#settings" data-nav="settings"><i data-lucide="sliders-horizontal"></i>Profile &amp; Settings</a>
+    </nav>
+    <div class="sidebar-footer"><i data-lucide="monitor"></i><div><strong>Local workspace <span class="online-dot"></span></strong><small id="workspace-status">Connecting…</small></div><button class="icon-button" data-action="logout" aria-label="Sign out"><i data-lucide="log-out"></i></button></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><div class="eyebrow" id="page-eyebrow">YOUR PERSONAL RESEARCH WORKSPACE</div><h1 id="page-title">Your research, in focus.</h1><p id="page-subtitle"></p></div>
+      <div class="header-actions"><label class="search-box"><i data-lucide="search"></i><input id="global-search" placeholder="Search sources, topics, tickers…" aria-label="Search research"></label><a id="dot-link" class="button primary" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer"><i data-lucide="sparkles"></i>Open your dot<i class="small-icon" data-lucide="external-link"></i></a></div>
+    </header>
+    <div id="demo-banner" hidden></div>
+    <div id="view" aria-live="polite"><div class="empty-state">Connecting to your research library…</div></div>
+  </main>
+  <dialog id="modal"><div class="modal-head"><h2 id="modal-title"></h2><button class="icon-button" data-action="close-modal" aria-label="Close dialog"><i data-lucide="x"></i></button></div><div id="modal-content"></div></dialog>
+  <div id="toast" role="status" hidden></div>
+  <input id="file-input" type="file" hidden multiple accept=".zip,.json,.pdf,.md,.markdown,.txt,.html,.htm,.eml,.csv,.vtt,.srt">
+  <div id="login-screen" hidden><form id="login-form" class="login-card"><div class="login-brand"><i data-lucide="book-open"></i>Research Desk</div><h1>A home for your research.</h1><p>Sign in to your private local workspace.</p><label>Workspace password<input id="login-password" type="password" autocomplete="current-password" required></label><button class="button primary wide" type="submit">Open workspace<i data-lucide="arrow-right"></i></button><p id="login-error" class="error-text"></p><small>Your password was created during installation. Reset it with <code>research-desk reset-password</code> on this Mac.</small></form></div>
+</body>
+</html>

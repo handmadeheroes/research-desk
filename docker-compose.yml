@@ -1,0 +1,32 @@
+name: research-desk
+services:
+  app:
+    build: .
+    init: true
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8401:8401"
+    environment:
+      RD_DATA_DIR: /data
+      RD_TIMEZONE: ${RD_TIMEZONE:-Asia/Kuala_Lumpur}
+      RD_DIGEST_TIME: ${RD_DIGEST_TIME:-08:30}
+      RD_FEED_INTERVAL_MINUTES: ${RD_FEED_INTERVAL_MINUTES:-60}
+      RD_BACKUP_RETENTION: ${RD_BACKUP_RETENTION:-7}
+      RD_SECURE_COOKIE: ${RD_SECURE_COOKIE:-false}
+      RD_DOT_URL: ${RD_DOT_URL:-https://chatgpt.com/}
+      RD_ALLOWED_HOSTS: ${RD_ALLOWED_HOSTS:-}
+      FINNHUB_API_KEY: ${FINNHUB_API_KEY:-}
+    volumes:
+      - research-data:/data
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8401/health',timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+volumes:
+  research-data:
